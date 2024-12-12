@@ -1,19 +1,14 @@
-FROM debian:11
+FROM debian:11 
+#ou version bullseye
 
-RUN apt-get update && apt-get install -y 
-		openssl			\
-		nginx			\
-		curl			\
-		vim				\
-		sudo
+#install package after update and upgrade
+RUN apt-get update && apt-get upgrade -y \
+	 && apt-get install -y mariadb-server netcat
+	
+COPY		./mdb-conf.sh /etc/mariadb-conf.conf
 
-RUN			rm -f /etc/nginx/nginx.conf
-
-COPY		./config/nginx.conf /etc/nginx/nginx.conf
-COPY		scripts/setup_nginx.sh /setup_nginx.sh
-
-RUN			chmod -R +x /setup_nginx.sh
+RUN			chmod +x /mdb-conf.sh
 
 EXPOSE		443
 
-ENTRYPOINT	["sh", "setup_nginx.sh"]
+ENTRYPOINT	["./mdb-conf.sh"]
