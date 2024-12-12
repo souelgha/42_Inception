@@ -1,14 +1,16 @@
-FROM debian:11 
-#ou version bullseye
+FROM debian:11
+
 
 #install package after update and upgrade
-RUN apt-get update && apt-get upgrade -y \
-	 && apt-get install -y mariadb-server netcat
+RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get install -y mariadb-server netcat
 	
-COPY		./mdb-conf.sh /etc/mariadb-conf.conf
+COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-RUN			chmod +x /mdb-conf.sh
+# COPY		./mariadb-conf.sh /etc/mariadb-conf.conf
 
-EXPOSE		443
+# RUN			chmod +x /mdb-conf.sh
 
-ENTRYPOINT	["./mdb-conf.sh"]
+# EXPOSE		3306
+
+# ENTRYPOINT	["./mariadb-conf.sh"]
