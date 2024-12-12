@@ -1,0 +1,49 @@
+version: "3" # mettre la version de compose
+
+services:
+  nginx:
+    container_name: nginx
+    build:
+      context: requirements/nginx/
+      dockerfile: Dockerfile
+    # env_file: .env         # indique le fichier optionnel contenant l'environnement
+    # depends_on:
+    #   -wordpress
+    ports:
+      - "80:80"
+    # Network :
+    #   - wordpress_network
+    restart: always         # Permet de redémarrer automatiquement le container en cas de crash
+       # - "443:443" 
+  # wordpress:
+  #   container_name: wordpress
+  #   build: requirements/wordpress/
+  #   env_file: .env    
+  #   ports:
+  #   - "80:80"
+  #   volume:
+  #     - wordpress_files
+  #   network:
+  #     - wordpress_network
+  #   depends_on:
+  #     - mariadb
+  #   restart: always 
+  
+  # mariadb:
+  #   container_name: mariadb
+  #   env_file: .env
+  #   build: requirements/mariadb/
+  #   env_file: .env
+  #   volume:
+  #     - db_data
+  #   network:
+  #     - wordpress_network   
+  #   restart: always
+  
+  # volume:
+  #   - wordpress_files: /var/www/html
+  #   - db_data: /var/lib/mysql
+
+  # network:
+  #   - wordpress_network
+
