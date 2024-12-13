@@ -14,6 +14,9 @@ mariadb -e "CREATE USER IF NOT EXISTS \`${MYSQL_USER}\`@'%' IDENTIFIED BY '${MYS
 # Grant privileges to user
 mariadb -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO \`${MYSQL_USER}\`@'%';"
 
+# Change root password 
+mariadb -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${MYSQL_ROOT_PASSWORD}';"
+
 # Flush privileges to apply changes
 mariadb -e "FLUSH PRIVILEGES;"
 
@@ -22,4 +25,10 @@ mariadb -e "FLUSH PRIVILEGES;"
 mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
 
 # Restart mariadb with new config in the background to keep the container running
+# exec mysqld_safe 
 mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
+
+
+# 		voir si on l ajoute
+#https://tuto.grademe.fr/inception/
+#https://medium.com/@afatir.ahmedfatir/unveiling-42-the-network-inception-a-dive-into-docker-and-docker-compose-cfda98d9f4ac

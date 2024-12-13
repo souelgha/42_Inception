@@ -5,12 +5,12 @@ FROM debian:11
 RUN apt-get update -y && apt-get upgrade -y
 RUN apt-get install -y mariadb-server netcat
 	
-COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+# COPY conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
 
-# COPY		./mariadb-conf.sh /etc/mariadb-conf.conf
+COPY		./mariadb-conf.sh /mariadb-conf.sh
 
-# RUN			chmod +x /mdb-conf.sh
+RUN			chmod +x /mariadb-conf.sh
 
 # EXPOSE		3306
 
-# ENTRYPOINT	["./mariadb-conf.sh"]
+ENTRYPOINT	["./mariadb-conf.sh"]

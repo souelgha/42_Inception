@@ -15,16 +15,15 @@ RUN openssl req -batch -x509 -sha256 -nodes -newkey rsa:2048 \
 	-subj "/C=FR/ST=IDF/L=Paris/O=42/OU=42/CN=sonouelg.42.fr/UID=sonouelg"
 
 
-RUN	mkdir -p /var/run/nginx 
-
 COPY		conf/nginx.conf /etc/nginx/nginx.conf
-# COPY		scripts/setup_nginx.sh /setup_nginx.sh
+
+RUN	mkdir -p /var/run/nginx 
 
 #create wp directory
 RUN mkdir -p /var/www/html
 
 # #chg owner et rights de html to www-data
-RUN chmod 755 /var/ww/html
+RUN chmod 755 /var/www/html
 RUN chown -R www-data:www-data /var/www/html
 
 
