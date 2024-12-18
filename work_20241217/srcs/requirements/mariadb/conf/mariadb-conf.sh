@@ -28,7 +28,3 @@ mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
 # exec mysqld_safe 
 mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
 
-
-# 		voir si on l ajoute
-#https://tuto.grademe.fr/inception/
-#https://medium.com/@afatir.ahmedfatir/unveiling-42-the-network-inception-a-dive-into-docker-and-docker-compose-cfda98d9f4ac
