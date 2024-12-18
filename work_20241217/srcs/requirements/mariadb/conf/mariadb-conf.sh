@@ -11,7 +11,7 @@ mariadb -e "CREATE USER IF NOT EXISTS \`${MYSQL_USER}\`@'%' IDENTIFIED BY '${MYS
 mariadb -e "GRANT ALL PRIVILEGES ON ${MYSQL_DB}.* TO \`${MYSQL_USER}\`@'%';"
 mariadb -e "FLUSH PRIVILEGES;"
 
-#--------------mariadb restart with new config--------------#
+#--------------restart de mariadb avec new config-------------#
 
 mysqladmin -u root -p$MYSQL_ROOT_PASSWORD shutdown
 mysqld_safe --port=3306 --bind-address=0.0.0.0 --datadir='/var/lib/mysql'
