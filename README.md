@@ -10,7 +10,17 @@ Inception is a project in which we create several docker containers from scratch
   - Wordpress database.
   - Wordpress website files.
 - 1 Docker network
+
 ![apercu](/inception-diagram.png)
+
+## Build and start
+a Makefile is used to build the project.
+
+run a make :
+```bash
+make
+```
+it takes several time for the 1st building. 
 
 
 
