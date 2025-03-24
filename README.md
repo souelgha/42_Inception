@@ -6,25 +6,26 @@ Inception is a project in which we create several docker containers from scratch
   - a Docker container contains wordpress + php-fpm.
   - a Docker container contains NGINX with TLSv1.2 or TLSv1.3.
   - a Docker container contains MariaDB.
-- 2 volumes
+- create 2 volumes
   - Wordpress database.
   - Wordpress website files.
-- 1 Docker network
+- create 1 Docker network
 
 ![apercu](/inception-diagram.png)
 
 ## Build and start
-a Makefile is used to build the project.
+A Makefile is used to build the project.
 
 run a make :
 ```bash
 make
 ```
-it takes several time for the 1st building. after running you will find 
+
+It takes several time for the 1st building. After running you will have this kind of screen:
 
 ![apercu](/running-containers.png)
 
-in Chrome browser, you can launch the website using
+In Chrome browser, you can launch the website using:
 
 ``` bash
 https://localhost
