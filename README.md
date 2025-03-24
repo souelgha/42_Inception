@@ -22,5 +22,13 @@ make
 ```
 it takes several time for the 1st building. 
 
+after running you will find 
+
+![apercu](/running-containers.png)
+in Chrome browser, you can launch the website using
+``` bash
+https://localhost
+```
+
 
 
