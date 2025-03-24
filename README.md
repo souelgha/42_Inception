@@ -10,6 +10,7 @@ Inception is a project in which we create several docker containers from scratch
   - Wordpress database.
   - Wordpress website files.
 - 1 Docker network
+![apercu](/inception-diagram.png)
 
 
 
